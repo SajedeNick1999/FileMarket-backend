@@ -289,10 +289,14 @@ class ComposerStaticInit7fc83abf4cd87e72884ecdc750c55f3e
     );
 
     public static $classMap = array (
-        'AddTokenToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2021_05_31_111000_add_token_to_users_table.php',
         'AddWalletToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2021_05_28_192528_add_wallet_to_users_table.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'CreateCategoriesTable2' => __DIR__ . '/../..' . '/database/migrations/2021_06_05_192644_create_categories_table2.php',
+        'CreateFilesTable' => __DIR__ . '/../..' . '/database/migrations/2021_06_05_102627_create_files_table.php',
+        'CreateFilesTable2' => __DIR__ . '/../..' . '/database/migrations/2021_06_05_193027_create_files_table2.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateSubcategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2021_06_05_102626_create_subcategories_table.php',
+        'CreateSubcategoriesTable2' => __DIR__ . '/../..' . '/database/migrations/2021_06_05_192740_create_subcategories_table2.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
