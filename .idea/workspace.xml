@@ -30,7 +30,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -140,6 +140,7 @@
       <workItem from="1622520996995" duration="591000" />
       <workItem from="1622528111521" duration="692000" />
       <workItem from="1622530793414" duration="3323000" />
+      <workItem from="1622715113323" duration="319000" />
     </task>
     <servers />
   </component>
