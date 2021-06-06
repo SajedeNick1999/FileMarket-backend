@@ -21,19 +21,24 @@ class UserController extends Controller
             'wallet'=>'0'
         ];
 
-        $new_user_obj=User::create($new_user_data);
-        if ($new_user_obj instanceof User) {
-            return response()->json([
-                'code'=>200,
-                'status'=>'OK'
-            ]);
-        }
-        else{
+        $users = User::where('email', '=', $request->input('email'))->first();
+        if ($users === null) {
+            $new_user_obj=User::create($new_user_data);
+            if ($new_user_obj instanceof User) {
+                return response()->json([
+                    'code'=>200,
+                    'status'=>'OK'
+                ]);
+            }
+        } else {
             return response()->json( [
                 'code'=>409,
                 'status'=>'User With This Email Already Exists'
             ]);
         }
+
+
+
     }
 
     public function login(Request $request){
