@@ -58,7 +58,8 @@ class UserController extends Controller
     }
 
     public function logout(Request $request){
-        $user=User::query()->where('remember_token','=',$request->input('token'))->first();
+        $user=User::where('remember_token', $request->input('token'))->first();
+        //$user=User::query()->where('remember_token','=',$request->input('token'))->first();
         $user->remember_token='';
         $user->save();
 

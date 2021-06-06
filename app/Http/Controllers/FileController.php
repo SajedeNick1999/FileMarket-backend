@@ -11,10 +11,10 @@ use Illuminate\Support\Str;
 class FileController extends Controller
 {
     public function upload(Request $request){
-        $user=User::query()->where('remember_token','=',$request->input('token'))->first();
-        $physicalName=Str::random(20);
+        $user=User::where('remember_token', $request->input('token'))->first();
+        $physicalName=Str::random(30);
         $new_file=[
-            'realName'=>$request->input('Name'),
+            'name'=>$request->input('name'),
             'physicalName'=>$physicalName,
             'description'=>$request->input('description'),
             'price'=>$request->input('price'),
@@ -23,11 +23,23 @@ class FileController extends Controller
             'author_id'=>$user->id,
             'subcategory_id'=>$request->input('subcategory_id')
         ];
+
+        //dd($new_file);
+        $file=File::create($new_file);
+
         $request->file('file')->storeAs('files',$physicalName);
-        File::create($new_file);
-        return response()->json([
-            'code'=>200,
-            'status'=>'OK'
-        ]);
+
+        if ($file instanceof File) {
+            return response()->json([
+                'code'=>200,
+                'status'=>'OK'
+            ]);
+        }
+        else{
+            return response()->json( [
+                'code'=>409,
+                'status'=>'File Upload Error'
+            ]);
+        }
     }
 }
