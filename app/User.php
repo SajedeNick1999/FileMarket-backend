@@ -25,4 +25,5 @@ class User extends Authenticatable
         $this->attributes['password'] = $value;
     }
 
+
 }

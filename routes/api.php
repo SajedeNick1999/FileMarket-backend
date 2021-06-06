@@ -17,3 +17,4 @@ Route::post('/user/signup', 'UserController@signup')->name('user.signup');
 Route::post('/user/login', 'UserController@login')->name('user.login');
 Route::post('/user/logout', 'UserController@logout')->name('user.logout');
 
+//Route::post('file/upload',)
