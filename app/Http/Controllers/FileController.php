@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\Subcategory;
+use App\Category;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,4 +44,26 @@ class FileController extends Controller
             ]);
         }
     }
+
+    public function getAll(Request $request){
+        $allfile=File::all();
+        $i=0;
+        foreach ($allfile as $file) {
+            $subcategory=Subcategory::where('id', $file->subcategory_id)->first();
+            $resp[$i]=[
+                'id'=>$file->id,
+                'realName'=> $file->realName,
+                'description'=> $file->description,
+                'price'=> $file->price,
+                'format'=> $file->format,
+                'size'=> $file->size,
+                'author'=> User::find($file->author_id)->name.' '.User::find($file->author_id)->family,
+                'subcategory'=>Subcategory::find($file->subcategory_id)->Name,
+                'category'=>Category::find($subcategory->category_id)->Name
+            ];
+            $i++;
+        }
+        return response()->json($resp);
+    }
+
 }

@@ -12,9 +12,6 @@ class CategoryController extends Controller
 {
     public function getAll(Request $request){
         $allsubcat=Subcategory::all();
-        $resp=[
-            'count'=>$allsubcat->count(),
-        ];
         $i=0;
         foreach ($allsubcat as $subcat) {
             $resp[$i]=[

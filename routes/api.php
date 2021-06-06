@@ -18,5 +18,6 @@ Route::post('/user/login', 'UserController@login')->name('user.login');
 Route::post('/user/logout', 'UserController@logout')->name('user.logout');
 
 Route::post('file/upload','FileController@upload')->name('file.upload');
+Route::get('file/getAll','FileController@getAll')->name('file.getAll');
 
 Route::get('category/getAll','CategoryController@getAll')->name('category.getAll');
