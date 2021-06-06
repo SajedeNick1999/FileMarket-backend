@@ -29,7 +29,7 @@ class FileController extends Controller
         //dd($new_file);
         $file=File::create($new_file);
 
-        $request->file('file')->storeAs('files',$physicalName);
+        $request->file('file')->move('files',$physicalName);
 
         if ($file instanceof File) {
             return response()->json([
