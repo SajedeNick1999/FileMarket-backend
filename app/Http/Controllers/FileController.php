@@ -97,4 +97,22 @@ class FileController extends Controller
 
     }
 
+    public function checkRegister(Request $request){
+        $user=User::where('remember_token', $request->input('token'))->first();
+        $fileRegister=FileRegister::where('user_id',$user->id)->where('file_id',$request->input('file_id'))->first();
+        if ($fileRegister instanceof FileRegister) {
+            return response()->json([
+                'result'=>'true',
+                'code'=>200,
+                'status'=>'OK'
+            ]);
+        }
+        else{
+            return response()->json([
+                'result'=>'false',
+                'code'=>200,
+                'status'=>'OK'
+            ]);
+        }
+    }
 }
