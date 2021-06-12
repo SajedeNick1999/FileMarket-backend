@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\FileRegister;
 use App\Subcategory;
 use App\Category;
 use App\User;
@@ -64,6 +65,36 @@ class FileController extends Controller
             $i++;
         }
         return response()->json($resp);
+    }
+
+
+    public function register(Request $request){
+        $user=User::where('remember_token', $request->input('token'))->first();
+        $file=File::where('id',$request->input('file_id'))->first();
+        $author=User::where('id',$file->author_id)->first();
+        if($file->price>$user->wallet){
+            return response()->json([
+                'code'=>400,
+                'status'=>'Not enough money'
+            ]);
+        }
+        $newfileRegister=[
+            'file_id'=>$file->id,
+            'user_id'=>$user->id,
+            'price'=>$file->price,
+        ];
+
+        $user->wallet=$user->wallet-$file->price;
+        $author->wallet=$author->wallet+$file->price;
+        $user->save();
+        $author->save();
+
+        FileRegister::create($newfileRegister);
+        return response()->json([
+            'code'=>200,
+            'status'=>'OK'
+        ]);
+
     }
 
 }

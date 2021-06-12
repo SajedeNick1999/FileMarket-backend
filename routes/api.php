@@ -23,8 +23,10 @@ Route::group([
 
     Route::post('file/upload','FileController@upload')->name('file.upload');
     Route::get('file/getAll','FileController@getAll')->name('file.getAll');
+    Route::post('file/register','FileController@register')->name('file.register');
 
     Route::get('category/getAll','CategoryController@getAll')->name('category.getAll');
+
 
 });
 
