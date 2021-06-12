@@ -113,6 +113,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -154,6 +155,7 @@
       <workItem from="1622989084516" duration="1105000" />
       <workItem from="1622991247007" duration="495000" />
       <workItem from="1622988960435" duration="327000" />
+      <workItem from="1623495665957" duration="3893000" />
     </task>
     <servers />
   </component>
@@ -171,5 +173,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="604" y="332" key="NewPhpFileDialog" timestamp="1623496902954">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="332" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1623496902954" />
   </component>
 </project>
